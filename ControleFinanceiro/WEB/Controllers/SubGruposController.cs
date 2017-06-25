@@ -26,6 +26,7 @@ namespace WEB.Controllers
         //GET
         public ActionResult Create()
         {
+            ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome");//SQL,Valor utiliado, Oque irá aparecer
             return View();
         }
         [HttpPost]
@@ -40,8 +41,17 @@ namespace WEB.Controllers
                     return RedirectToAction("Index");
                 }
                 else
-                {                    
-                        Response.Write("<script>alert('Já existe um sub grupo com o Nome: " + subGrupo.Nome + " cadastrado!');</script>");                    
+                {
+                    //if (db.SubGrupos.FirstOrDefault(x => x.Nome.Equals(subGrupo.Nome)) != null && db.SubGrupos.FirstOrDefault(x => x.Nome.Equals(subGrupo.Nome)).GrupoID != subGrupo.GrupoID )
+                    //{
+                    //    db.SubGrupos.Add(subGrupo);
+                    //    db.SaveChanges();
+                    //    return RedirectToAction("Index");
+                    //}
+                    //else
+                    //{
+                        Response.Write("<script>alert('Já existe um sub grupo com o Nome: " + subGrupo.Nome + " cadastrado!');</script>");
+                    //}                                          
                 }
             }
             return View(subGrupo);
@@ -80,6 +90,7 @@ namespace WEB.Controllers
                 // ERRO HTTP 404
                 return HttpNotFound();
             }
+            ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome", subGrupo.GrupoID);//SQL,Valor utiliado, Oque irá aparecer
             Session.Add("NomeAntigo", subGrupo.Nome);
             return View(subGrupo);
         }
@@ -138,30 +149,30 @@ namespace WEB.Controllers
             return RedirectToAction("Index");
         }
 
-        //// --- Ativar SubGrupo ---
-        ////Get
-        //public ActionResult AtivarSubGrupo(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        //ERRO HTTP 400
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Grupo grupo = db.Grupos.Find(id);
-        //    if (grupo == null)
-        //    {
-        //        // ERRO HTTP 404
-        //        return HttpNotFound();
-        //    }
-        //    return View(grupo);
-        //}
-        //[HttpPost]
-        //[ActionName("AtivarSubGrupo")]// Decide o nome da Action
-        //public ActionResult AtivarSubGrupoConfirmed(int? id)
-        //{
-        //    db.Grupos.Find(id).Inativo = false;
-        //    db.SaveChanges();
-        //    return RedirectToAction("IndexAtivarSubGrupo");
-        //}
+        // --- Ativar SubGrupo ---
+        //Get
+        public ActionResult Ativar(int? id)
+        {
+            if (id == null)
+            {
+                //ERRO HTTP 400
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SubGrupo subGrupo = db.SubGrupos.Find(id);
+            if (subGrupo == null)
+            {
+                // ERRO HTTP 404
+                return HttpNotFound();
+            }
+            return View(subGrupo);
+        }
+        [HttpPost]
+        [ActionName("Ativar")]// Decide o nome da Action
+        public ActionResult AtivarConfirmed(int? id)
+        {
+            db.SubGrupos.Find(id).Inativo = false;
+            db.SaveChanges();
+            return RedirectToAction("IndexAtivarSubGrupo");
+        }
     }
 }

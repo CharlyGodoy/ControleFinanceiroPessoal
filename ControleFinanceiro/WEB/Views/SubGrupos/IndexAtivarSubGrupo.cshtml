@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<BaseModel.SubGrupo>
 
 @{
-    ViewBag.Title = "SubGrupos Ativos";
+    ViewBag.Title = "SubGrupos Inativos";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Adicionar Novo SubGrupo", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -29,9 +26,7 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.SubGrupoID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.SubGrupoID }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.SubGrupoID })
+            @Html.ActionLink("Ativar", "Ativar", new { id=item.SubGrupoID })
         </td>
     </tr>
 }

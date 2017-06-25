@@ -27,6 +27,10 @@ namespace BaseModel
         public int GrupoID { get; set; }
         public virtual Grupo _Grupo { get; set; }
 
+        //// --- Relacionamento SubGrupo ---
+        //public int SubGrupoID { get; set; }
+        //public virtual SubGrupo _SubGrupo { get; set; }
+
         // --- Relacionamento Fornecedor ---
         public int FornecedorID { get; set; }
         public virtual Fornecedor _Fornecedor { get; set; }

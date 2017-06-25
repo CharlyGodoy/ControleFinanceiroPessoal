@@ -1,10 +1,10 @@
 ﻿@model BaseModel.SubGrupo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Novo SubGrupo";
 }
 
-<h2>Create</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm()) 
@@ -24,16 +24,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Inativo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Inativo)
-                    @Html.ValidationMessageFor(model => model.Inativo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.GrupoID, "GrupoID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("GrupoID", null, htmlAttributes: new { @class = "form-control" })
@@ -43,14 +33,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Adicionar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para a lista de SubGrupo", "Index")
 </div>
 
 @section Scripts {
