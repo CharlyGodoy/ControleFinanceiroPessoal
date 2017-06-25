@@ -12,8 +12,6 @@ namespace BaseModel
         public int ContaReceberID { get; set; }
         [Required]
         public double Valor { get; set; }
-        [Required]
-        public Cliente Cliente { get; set; }
         public string Descricao { get; set; }
         public double Valor_Recebido { get; set; }
         public DateTime Data_Inclusao { get; set; }
@@ -26,10 +24,12 @@ namespace BaseModel
         public bool Liquidado { get; set; }
 
         // --- Relacionamento Grupo ---
-        [Required]
         public int GrupoID { get; set; }
-        [Required]
-        public Grupo _Grupo { get; set; }
+        public virtual Grupo _Grupo { get; set; }
+
+        // --- Relacionamento Cliente ---
+        public int ClienteID { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         public ContaReceber()
         {

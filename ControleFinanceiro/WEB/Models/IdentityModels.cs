@@ -37,6 +37,8 @@ namespace WEB.Models
 
         public DbSet<Grupo> Grupos { get; set; }
 
+        public DbSet<SubGrupo> SubGrupos { get; set; }
+
         public DbSet<ContaPagar> ContasPagar { get; set; }
 
         public DbSet<ContaReceber> ContasReceber { get; set; }

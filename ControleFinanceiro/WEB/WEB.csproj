@@ -203,9 +203,23 @@
     <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubGruposController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706250105237_InitialCreate.cs" />
+    <Compile Include="Migrations\201706250105237_InitialCreate.Designer.cs">
+      <DependentUpon>201706250105237_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706251729026_GrupoESubGrupo.cs" />
+    <Compile Include="Migrations\201706251729026_GrupoESubGrupo.Designer.cs">
+      <DependentUpon>201706251729026_GrupoESubGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706251742147_SubGrupo.cs" />
+    <Compile Include="Migrations\201706251742147_SubGrupo.Designer.cs">
+      <DependentUpon>201706251742147_SubGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -286,17 +300,17 @@
     <Content Include="Views\Fornecedores\Index.cshtml" />
     <Content Include="Views\Fornecedores\IndexAtivo.cshtml" />
     <Content Include="Views\Grupos\AtivarGrupo.cshtml" />
-    <Content Include="Views\Grupos\AtivarSubGrupo.cshtml" />
     <Content Include="Views\Grupos\CreateGrupo.cshtml" />
     <Content Include="Views\Grupos\DeleteGrupo.cshtml" />
-    <Content Include="Views\Grupos\DeleteSubGrupo.cshtml" />
     <Content Include="Views\Grupos\DetailsGrupo.cshtml" />
-    <Content Include="Views\Grupos\DetailsSubGrupo.cshtml" />
     <Content Include="Views\Grupos\EditGrupo.cshtml" />
     <Content Include="Views\Grupos\Index.cshtml" />
     <Content Include="Views\Grupos\IndexAtivarGrupo.cshtml" />
-    <Content Include="Views\Grupos\IndexAtivarSubGrupo.cshtml" />
-    <Content Include="Views\Grupos\IndexSubGrupo.cshtml" />
+    <Content Include="Views\SubGrupos\Create.cshtml" />
+    <Content Include="Views\SubGrupos\Index.cshtml" />
+    <Content Include="Views\SubGrupos\Details.cshtml" />
+    <Content Include="Views\SubGrupos\Edit.cshtml" />
+    <Content Include="Views\SubGrupos\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +331,17 @@
       <Project>{8465c136-ce03-4586-8a88-ee06ae81ba34}</Project>
       <Name>BaseModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706250105237_InitialCreate.resx">
+      <DependentUpon>201706250105237_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251729026_GrupoESubGrupo.resx">
+      <DependentUpon>201706251729026_GrupoESubGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251742147_SubGrupo.resx">
+      <DependentUpon>201706251742147_SubGrupo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
