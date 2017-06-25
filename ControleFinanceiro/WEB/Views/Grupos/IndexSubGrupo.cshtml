@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BaseModel.Grupo>
+
+@{
+    ViewBag.Title = "SubGrupos Ativos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Novo SubGrupo", "CreateSubGrupo")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupo_ID_Pai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grupo_ID_Pai)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditSubGrupo", new { id=item.GrupoID }) |
+            @Html.ActionLink("Detalhes", "DetailsSubGrupo", new { id=item.GrupoID }) |
+            @Html.ActionLink("Excluir", "DeleteSubGrupo", new { id=item.GrupoID })
+        </td>
+    </tr>
+}
+
+</table>

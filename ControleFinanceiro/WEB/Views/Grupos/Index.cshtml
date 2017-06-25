@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BaseModel.Grupo>
+
+@{
+    ViewBag.Title = "Grupos Ativos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Novo Grupo", "CreateGrupo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditGrupo", new { id=item.GrupoID }) |
+            @Html.ActionLink("Detalhes", "DetailsGrupo", new { id=item.GrupoID }) |
+            @Html.ActionLink("Excluir", "DeleteGrupo", new { id=item.GrupoID })
+        </td>
+    </tr>
+}
+
+</table>

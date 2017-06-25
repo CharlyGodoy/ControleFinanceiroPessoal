@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BaseModel.Fornecedor>
+
+@{
+    ViewBag.Title = "Fornecedor Inativo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf_Cnpj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obs)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf_Cnpj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Obs)
+        </td>
+        <td>
+            @Html.ActionLink("Ativar", "Ativar", new { id=item.FornecedorID })
+        </td>
+    </tr>
+}
+
+</table>

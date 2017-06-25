@@ -1,0 +1,42 @@
+﻿@model BaseModel.Grupo
+
+@{
+    ViewBag.Title = "Detalhes SubGrupo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Grupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo_ID_Pai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo_ID_Pai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "EditSubGrupo", new { id = Model.GrupoID }) |
+    @Html.ActionLink("Voltar a lista de SubGrupos", "IndexSubGrupo")
+</p>

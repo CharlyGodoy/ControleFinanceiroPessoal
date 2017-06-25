@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BaseModel.Cliente>
+
+@{
+    ViewBag.Title = "Clientes Ativos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Novo Cliente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf_Cnpj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obs)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf_Cnpj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Obs)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ClienteID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ClienteID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ClienteID })
+        </td>
+    </tr>
+}
+
+</table>
