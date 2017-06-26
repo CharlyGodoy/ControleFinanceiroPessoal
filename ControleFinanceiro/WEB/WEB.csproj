@@ -227,6 +227,22 @@
     <Compile Include="Migrations\201706252320397_oo.Designer.cs">
       <DependentUpon>201706252320397_oo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706261616319_CP.cs" />
+    <Compile Include="Migrations\201706261616319_CP.Designer.cs">
+      <DependentUpon>201706261616319_CP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261638265_CP2.cs" />
+    <Compile Include="Migrations\201706261638265_CP2.Designer.cs">
+      <DependentUpon>201706261638265_CP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261643185_CP3.cs" />
+    <Compile Include="Migrations\201706261643185_CP3.Designer.cs">
+      <DependentUpon>201706261643185_CP3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261757448_CP4.cs" />
+    <Compile Include="Migrations\201706261757448_CP4.Designer.cs">
+      <DependentUpon>201706261757448_CP4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -321,10 +337,19 @@
     <Content Include="Views\SubGrupos\Delete.cshtml" />
     <Content Include="Views\SubGrupos\Ativar.cshtml" />
     <Content Include="Views\SubGrupos\IndexAtivarSubGrupo.cshtml" />
+    <Content Include="Views\ContasPagar\Create.cshtml" />
+    <Content Include="Views\ContasPagar\Delete.cshtml" />
+    <Content Include="Views\ContasPagar\Edit.cshtml" />
+    <Content Include="Views\ContasPagar\Index.cshtml" />
+    <Content Include="Views\ContasPagar\IndexBaixado.cshtml" />
+    <Content Include="Views\ContasPagar\IndexLiquidado.cshtml" />
+    <Content Include="Views\ContasPagar\DetailsAtivo.cshtml" />
+    <Content Include="Views\ContasPagar\DetailsLiquidado.cshtml" />
+    <Content Include="Views\ContasPagar\Ativar.cshtml" />
+    <Content Include="Views\ContasPagar\Liquidar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ContasPagar\" />
     <Folder Include="Views\ContasReceber\" />
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +382,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706252320397_oo.resx">
       <DependentUpon>201706252320397_oo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261616319_CP.resx">
+      <DependentUpon>201706261616319_CP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261638265_CP2.resx">
+      <DependentUpon>201706261638265_CP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261643185_CP3.resx">
+      <DependentUpon>201706261643185_CP3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261757448_CP4.resx">
+      <DependentUpon>201706261757448_CP4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

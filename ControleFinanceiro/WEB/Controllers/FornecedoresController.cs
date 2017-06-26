@@ -138,10 +138,25 @@ namespace WEB.Controllers
         [HttpPost]
         [ActionName("Delete")]// Decide o nome da Action
         public ActionResult DeleteConfirmed(int? id)//O delete já foi confirmado
-        {
-            db.Fornecedores.Find(id).Inativo = true;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+        {            
+            if (db.ContasPagar.FirstOrDefault(x => x.Baixado.Equals(false)) == null)
+            {
+                if(db.ContasPagar.FirstOrDefault(x => x.Liquidado.Equals(true)) == null)
+                {
+                    db.Fornecedores.Find(id).Inativo = true;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Não foi possivel excluir esse fornecedor pois ele possui Contas a Pagar Liquidadas!');</script>");
+                    return View();
+                }
+            }else
+            {
+                Response.Write("<script>alert('Não foi possivel excluir esse fornecedor pois ele possui Contas a Pagar Ativas!');</script>");
+                return View();
+            }
         }
 
         // --- Ativar Fornecedor ---

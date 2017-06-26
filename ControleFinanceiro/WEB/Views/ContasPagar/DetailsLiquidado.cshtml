@@ -1,0 +1,81 @@
+﻿@model BaseModel.ContaPagar
+
+@{
+    ViewBag.Title = "Detalhes Contas a Pagar Liquidado";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>ContaPagar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Fornecedor.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Grupo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor_Pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_Pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Inclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Inclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Vencimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Vencimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Pagamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar para a lista de Contas a Pagar Liquidadas", "IndexLiquidado")
+</p>

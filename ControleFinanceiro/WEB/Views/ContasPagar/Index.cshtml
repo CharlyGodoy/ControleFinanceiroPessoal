@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BaseModel.ContaPagar>
+
+@{
+    ViewBag.Title = "Contas a Pagar Ativas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Nova Conta a Pagar", "Create") |
+    @Html.ActionLink("Contas a Pagar Baixados", "IndexBaixado") |
+    @Html.ActionLink("Contas a Pagar Liquidadas", "IndexLiquidado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Vencimento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Fornecedor.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Grupo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_Vencimento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ContaPagarID }) |
+            @Html.ActionLink("Detalhes", "DetailsAtivo", new { id=item.ContaPagarID }) |
+            @Html.ActionLink("Baixar", "Delete", new { id=item.ContaPagarID }) |
+            @Html.ActionLink("Liquidar", "Liquidar", new { id = item.ContaPagarID })
+        </td>
+    </tr>
+}
+
+</table>

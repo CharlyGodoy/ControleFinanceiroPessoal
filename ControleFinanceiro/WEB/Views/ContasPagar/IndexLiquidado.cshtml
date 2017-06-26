@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BaseModel.ContaPagar>
+
+@{
+    ViewBag.Title = "Contas a Pagar Liquidadas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Contas a Pagar Ativo", "Index") |
+    @Html.ActionLink("Contas a Pagar Baixadas", "IndexBaixado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor_Pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Pagamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Fornecedor.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Grupo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor_Pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_Pagamento)
+        </td>
+        <td>
+            @Html.ActionLink("Detalhes", "DetailsLiquidado", new { id=item.ContaPagarID })
+        </td>
+    </tr>
+}
+
+</table>

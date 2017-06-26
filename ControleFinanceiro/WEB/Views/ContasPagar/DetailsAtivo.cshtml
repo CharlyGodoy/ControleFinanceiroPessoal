@@ -1,0 +1,58 @@
+﻿@model BaseModel.ContaPagar
+
+@{
+    ViewBag.Title = "Detalhes Contas a Pagar Ativas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Conta a Pagar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Fornecedor.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Grupo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Vencimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_Vencimento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ContaPagarID }) |
+    @Html.ActionLink("Voltar para a lista de Contas a Pagar Ativo", "Index")
+</p>
