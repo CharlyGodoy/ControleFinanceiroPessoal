@@ -11,12 +11,21 @@ namespace BaseModel
     {
         public int ContaReceberID { get; set; }
         [Required]
+        [DataType(DataType.Currency)]
         public double Valor { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+        [DataType(DataType.Currency)]
+        [Display(Name = "Valor Recebido")]
         public double Valor_Recebido { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de Inclusão")]
         public DateTime Data_Inclusao { get; set; }
-        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data Prevista de Recebimento")]
         public DateTime Data_PrevRecebimento { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de Recebimento")]
         public DateTime Data_Recebimento { get; set; }
         [Required]
         public bool Baixado { get; set; }
@@ -35,9 +44,5 @@ namespace BaseModel
         public int ClienteID { get; set; }
         public virtual Cliente Cliente { get; set; }
 
-        public ContaReceber()
-        {
-            Data_Inclusao = DateTime.Now;
-        }
     }
 }

@@ -1,0 +1,64 @@
+﻿@model BaseModel.ContaReceber
+
+@{
+    ViewBag.Title = "Baixar Conta a Receber";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Você tem certeza que deseja baixar essa Conta a Receber?</h3>
+<div>
+    <h4>Conta a Receber</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Grupo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_PrevRecebimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_PrevRecebimento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Baixar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para a lista de Contas a Receber Ativas", "Index")
+        </div>
+    }
+</div>

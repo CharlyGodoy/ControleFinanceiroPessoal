@@ -74,8 +74,6 @@ namespace WEB.Controllers
         }
 
         // POST: ContasPagar/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ContaPagar contaPagar)
@@ -97,8 +95,8 @@ namespace WEB.Controllers
                 Response.Write("<script>alert('Não possivel criar uma Conta a Pagar com data de vencimento menor do que a data de hoje!');</script>");
             }
 
-            ViewBag.FornecedorID = new SelectList(db.Fornecedores, "FornecedorID", "Nome", contaPagar.FornecedorID);
-            ViewBag.GrupoID = new SelectList(db.Grupos, "GrupoID", "Nome", contaPagar.GrupoID);
+            ViewBag.FornecedorID = new SelectList(db.Fornecedores.Where(x => x.Inativo.Equals(false)).ToList(), "FornecedorID", "Nome", contaPagar.FornecedorID);
+            ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome", contaPagar.GrupoID);
             return View(contaPagar);
         }
 
@@ -122,8 +120,6 @@ namespace WEB.Controllers
         }
 
         // POST: ContasPagar/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ContaPagar contaPagar)
@@ -143,8 +139,8 @@ namespace WEB.Controllers
             {
                 Response.Write("<script>alert('Não possivel editar uma Conta a Pagar com data de vencimento menor do que a data de hoje!');</script>");
             }
-            ViewBag.FornecedorID = new SelectList(db.Fornecedores, "FornecedorID", "Nome", contaPagar.FornecedorID);
-            ViewBag.GrupoID = new SelectList(db.Grupos, "GrupoID", "Nome", contaPagar.GrupoID);
+            ViewBag.FornecedorID = new SelectList(db.Fornecedores.Where(x => x.Inativo.Equals(false)).ToList(), "FornecedorID", "Nome", contaPagar.FornecedorID);
+            ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome", contaPagar.GrupoID);
             return View(contaPagar);
         }
 
@@ -231,8 +227,8 @@ namespace WEB.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-            ViewBag.FornecedorID = new SelectList(db.Fornecedores, "FornecedorID", "Nome", contaPagar.FornecedorID);
-            ViewBag.GrupoID = new SelectList(db.Grupos, "GrupoID", "Nome", contaPagar.GrupoID);
+            ViewBag.FornecedorID = new SelectList(db.Fornecedores.Where(x => x.Inativo.Equals(false)).ToList(), "FornecedorID", "Nome", contaPagar.FornecedorID);
+            ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome", contaPagar.GrupoID);
             return View(contaPagar);
         }
 

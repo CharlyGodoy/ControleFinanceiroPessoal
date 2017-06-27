@@ -286,8 +286,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -347,10 +345,19 @@
     <Content Include="Views\ContasPagar\DetailsLiquidado.cshtml" />
     <Content Include="Views\ContasPagar\Ativar.cshtml" />
     <Content Include="Views\ContasPagar\Liquidar.cshtml" />
+    <Content Include="Views\ContasReceber\Create.cshtml" />
+    <Content Include="Views\ContasReceber\Delete.cshtml" />
+    <Content Include="Views\ContasReceber\Edit.cshtml" />
+    <Content Include="Views\ContasReceber\Index.cshtml" />
+    <Content Include="Views\ContasReceber\IndexBaixado.cshtml" />
+    <Content Include="Views\ContasReceber\IndexLiquidado.cshtml" />
+    <Content Include="Views\ContasReceber\DetailsAtivo.cshtml" />
+    <Content Include="Views\ContasReceber\DetailsLiquidado.cshtml" />
+    <Content Include="Views\ContasReceber\Ativar.cshtml" />
+    <Content Include="Views\ContasReceber\Liquidar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ContasReceber\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -138,9 +138,27 @@ namespace WEB.Controllers
         [ActionName("Delete")]// Decide o nome da Action
         public ActionResult DeleteConfirmed(int? id)//O delete já foi confirmado
         {
-            db.Clientes.Find(id).Inativo = true;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (db.ContasReceber.FirstOrDefault(x => x.Baixado.Equals(false)) == null)
+            {
+                if (db.ContasReceber.FirstOrDefault(x => x.Liquidado.Equals(true)) == null)
+                {
+                    db.Clientes.Find(id).Inativo = true;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Não foi possivel excluir esse Cliente pois ele possui Contas a Receber Liquidadas!');</script>");
+                    return View();
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Não foi possivel excluir esse Cliente pois ele possui Contas a Receber Ativas!');</script>");
+                return View();
+            }
+
+
         }
 
         // --- Ativar Cliente ---

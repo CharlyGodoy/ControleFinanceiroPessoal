@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BaseModel.ContaReceber>
+
+@{
+    ViewBag.Title = "Contas a Receber Baixadas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Contas a Receber Ativas", "Index") |
+    @Html.ActionLink("Contas a Receber Liquidadas", "IndexLiquidado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_PrevRecebimento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Grupo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_PrevRecebimento)
+        </td>
+        <td>
+            @Html.ActionLink("Ativar", "Ativar", new { id=item.ContaReceberID })
+        </td>
+    </tr>
+}
+
+</table>

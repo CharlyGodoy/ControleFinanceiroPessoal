@@ -1,4 +1,4 @@
-﻿@model BaseModel.ContaPagar
+﻿@model BaseModel.ContaReceber
 
 @{
     ViewBag.Title = "Detalhes";
@@ -7,23 +7,23 @@
 <h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Conta a Pagar</h4>
+    <h4>ContaReceber</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._Fornecedor.Nome)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model._Grupo.Nome)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model._Grupo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
         </dd>
 
         <dt>
@@ -43,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Data_Vencimento)
+            @Html.DisplayNameFor(model => model.Data_PrevRecebimento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Data_Vencimento)
+            @Html.DisplayFor(model => model.Data_PrevRecebimento)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ContaPagarID }) |
-    @Html.ActionLink("Voltar para a lista de Contas a Pagar Ativo", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ContaReceberID }) |
+    @Html.ActionLink("Voltar para a lista de Contas a Receber Ativas", "Index")
 </p>

@@ -1,4 +1,4 @@
-﻿@model BaseModel.ContaPagar
+﻿@model BaseModel.ContaReceber
 
 @{
     ViewBag.Title = "Detalhes";
@@ -7,23 +7,23 @@
 <h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>ContaPagar</h4>
+    <h4>Conta a Receber</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model._Fornecedor.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._Fornecedor.Nome)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model._Grupo.Nome)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model._Grupo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
         </dd>
 
         <dt>
@@ -43,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Valor_Pago)
+            @Html.DisplayNameFor(model => model.Valor_Recebido)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Valor_Pago)
+            @Html.DisplayFor(model => model.Valor_Recebido)
         </dd>
 
         <dt>
@@ -59,23 +59,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Data_Vencimento)
+            @Html.DisplayNameFor(model => model.Data_PrevRecebimento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Data_Vencimento)
+            @Html.DisplayFor(model => model.Data_PrevRecebimento)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Data_Pagamento)
+            @Html.DisplayNameFor(model => model.Data_Recebimento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Data_Pagamento)
+            @Html.DisplayFor(model => model.Data_Recebimento)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Voltar para a lista de Contas a Pagar Liquidadas", "IndexLiquidado")
+    @Html.ActionLink("Voltar para a lista de Contas a Receber Liquidadas", "IndexLiquidado")
 </p>

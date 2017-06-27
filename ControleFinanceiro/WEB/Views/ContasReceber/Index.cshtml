@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BaseModel.ContaReceber>
+
+@{
+    ViewBag.Title = "Contas a Receer Ativas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Nova Conta a Receber", "Create") |
+    @Html.ActionLink("Contas a Receber Baixadas", "IndexBaixado") |
+    @Html.ActionLink("Contas a Receber Liquidadas", "IndexLiquidado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Grupo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_PrevRecebimento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Grupo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_PrevRecebimento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ContaReceberID }) |
+            @Html.ActionLink("Detalhes", "DetailsAtivo", new { id=item.ContaReceberID }) |
+            @Html.ActionLink("Baixar", "Delete", new { id=item.ContaReceberID }) |
+            @Html.ActionLink("Liquidar", "Liquidar", new { id = item.ContaReceberID })
+        </td>
+    </tr>
+}
+
+</table>
