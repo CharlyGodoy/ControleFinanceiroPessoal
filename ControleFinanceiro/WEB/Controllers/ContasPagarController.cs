@@ -70,6 +70,7 @@ namespace WEB.Controllers
         {
             ViewBag.FornecedorID = new SelectList(db.Fornecedores.Where(x => x.Inativo.Equals(false)).ToList(), "FornecedorID", "Nome");
             ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome");
+            ViewBag.SubGrupoID = new SelectList(db.SubGrupos.Where(x => x.Inativo.Equals(false)).ToList(), "SubGrupoID", "Nome");
             return View();
         }
 
@@ -230,6 +231,12 @@ namespace WEB.Controllers
             ViewBag.FornecedorID = new SelectList(db.Fornecedores.Where(x => x.Inativo.Equals(false)).ToList(), "FornecedorID", "Nome", contaPagar.FornecedorID);
             ViewBag.GrupoID = new SelectList(db.Grupos.Where(x => x.Inativo.Equals(false)).ToList(), "GrupoID", "Nome", contaPagar.GrupoID);
             return View(contaPagar);
+        }
+
+        public JsonResult GetsubGrupos(int GrupoID)
+        {
+            var subGrupos = new SelectList(db.SubGrupos.Where(x => x.GrupoID == GrupoID && x.Inativo.Equals(false)));
+            return Json(subGrupos, JsonRequestBehavior.AllowGet);
         }
 
 

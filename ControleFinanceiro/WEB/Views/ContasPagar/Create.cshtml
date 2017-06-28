@@ -48,6 +48,13 @@
         </div>
 
         <div class="form-group">
+            <label class = "control-label col-md-2" >SubGrupo</label>
+            <div class="col-md-10">
+                @Html.DropDownList("SubGrupoID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.FornecedorID, "FornecedorID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("FornecedorID", null, htmlAttributes: new { @class = "form-control" })
@@ -57,7 +64,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Adicionar" class="btn btn-default" />
+                <input type="submit" value="Adicionar" class="btn btn-success" />
             </div>
         </div>
     </div>
@@ -69,6 +76,35 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
++
++   <script type="text/javascript">
+            $(document).ready(function () {
+    
+                $("#GrupoID").on("change", function () {
+                    var options = {};
+    
+                    options.url = "/ContasPagar/GetSubGrupos";
+                    options.type = "GET";
+                    options.data = { "GrupoID": $("#GrupoID").val() };
+                    options.dataType = "json";
+    
+                    options.success = function (data) {
+                        $("#SubGrupoID").empty();
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(data[i].Nome);
+    
+                            $("#SubGrupoID").append(
+                                "<option value='" + data[i].SubGrupoID + "'> " + data[i].Nome + " </option>");
+                        }
+                    };
+    
+                   $.ajax(options);
+                });
+    
+           });
+        </script>
++}
+
 }
 
 @*http://www.gvu.com.br/empreendimentos/bower_components/maskMoney/demo/*@
